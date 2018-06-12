@@ -249,3 +249,6 @@ end
 #### 의존성 없애기
 
 `$ gem install bundler`
+
+`$ bundle install`
+gem 파일을 찾아서 다 설치해줌
