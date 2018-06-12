@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'bcrypt'
 require './model.rb'
 
 before do 
@@ -68,4 +69,28 @@ get '/posts/update/:id' do
   @id = params[:id]
   Post.get(@id).update(title: params[:title], body: params[:body])
   redirect 'posts/'+@id
+end
+
+get '/users' do
+  @users = User.all
+  erb :'users/users'
+end
+
+get '/users/new' do
+  @users = User.all
+  erb :'users/new'
+end
+
+get '/users/create' do
+  # User.create(id: params[:id], name: params[:name], email: @email, password: @password)
+  # 비밀번호, 비밀번호 확인이 다르면
+  if params[:password] != params[:passwordconfirm]
+    redirect '/'
+  else
+    # 같으면 가입을 시킨다
+    User.create(name: params[:name], 
+    email: params[:email], 
+    password: BCrypt::password.create(params[:password]))
+  end
+  erb :'users/create'
 end
