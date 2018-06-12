@@ -8,6 +8,11 @@
 
 `$ gem install sinatra-reloader`
 
+`$ gem install dm-sqlite-adapter`
+
+`$ gem install sinatra sinatra-reloader data_mapper`
+
+
 #### 시작 페이지 만들기(routing 설정 및 대응되는 view 설정)
 
 ```ruby
