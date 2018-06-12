@@ -244,3 +244,8 @@ get 'posts/:id' do
 end
 ```
 
+
+
+#### 의존성 없애기
+
+`$ gem install bundler`
